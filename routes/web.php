@@ -34,3 +34,13 @@ Route::group(['prefix' => 'colors'], function() {
     Route::patch('/{color}', \App\Http\Controllers\Color\UpdateController::class)->name('color.update');
     Route::delete('/{color}', \App\Http\Controllers\Color\DeleteController::class)->name('color.delete');
 });
+
+Route::group(['prefix' => 'tags'], function() {
+    Route::get('/', \App\Http\Controllers\Tag\IndexController::class)->name('tag.index');
+    Route::get('/create', \App\Http\Controllers\Tag\CreateController::class)->name('tag.create');
+    Route::post('/', \App\Http\Controllers\Tag\StoreController::class)->name('tag.store');
+    Route::get('/{tag}/edit', \App\Http\Controllers\Tag\EditController::class)->name('tag.edit');
+    Route::get('/{tag}', \App\Http\Controllers\Tag\ShowController::class)->name('tag.show');
+    Route::patch('/{tag}', \App\Http\Controllers\Tag\UpdateController::class)->name('tag.update');
+    Route::delete('/{tag}', \App\Http\Controllers\Tag\DeleteController::class)->name('tag.delete');
+});
