@@ -23,7 +23,63 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-            
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header d-flex p-3">
+                  {{-- <div class="mr-3">
+                    <a href="{{ route('user.edit', $user->id) }}" class="btn btn-primary">Редактировать</a>
+                  </div> --}}
+                  <form action="{{ route('product.delete', $product->id) }}" method="post">
+                    @csrf
+                    @method('delete')
+                    <input type="submit" class="btn btn-danger" value="Удалить">
+                  </form>
+              </div>
+
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <tbody>
+                    <tr>
+                      <td>ID</td>
+                      <td>{{ $product->id }}</td>
+                    </tr>
+                    <tr>
+                      <td>Наименование</td>
+                      <td>{{ $product->title }}</td>
+                    </tr>
+                    <tr>
+                      <td>Описание</td>
+                      <td>{{ $product->description }}</td>
+                    </tr>
+                    <tr>
+                      <td>Контент</td>
+                      <td>{{ $product->content }}</td>
+                    </tr>
+                    <tr>
+                      <td>Цена</td>
+                      <td>{{ $product->price }}</td>
+                    </tr>
+                    <tr>
+                      <td>Количество на складе</td>
+                      <td>{{ $product->count }}</td>
+                    </tr>
+                    <tr>
+                      <td>Категория</td>
+                      <td>{{ $product->category }}</td>
+                    </tr>
+                    <tr>
+                      <td>Теги</td>
+                      <td>{{ $product->tag }}</td>
+                    </tr>
+                    <tr>
+                      <td>Цвет</td>
+                      <td>{{ $product->color }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
       </div><!-- /.container-fluid -->
     </section>
